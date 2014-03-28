@@ -9,7 +9,7 @@ float temp; // THIS IS IN THE MAIN SKETCH !!! chance temp throughout to match na
 
 void setup() {
 	Serial.begin(9600);
-	temp = 4.0;
+	temp = 25.0;
 }
 
 void loop () {
@@ -50,31 +50,32 @@ void loop () {
 
 
 		if (strcmp(c1,"temp") == 0) {
-			Serial.println("command temp recognized");
+			// Serial.println("command temp recognized");
 			
 			if (strcmp(c2,"set") == 0) {
-				Serial.println("command temp set recognized");
+				// Serial.println("command temp set recognized");
 				temp = atof(c3);
 			}
-			else if (/*strcmp(c2,"increase") == 0 || */strcmp(c2,"inc") == 0) {
-				Serial.println("command temp increase recognized");
+			else if (strcmp(c2,"increase") == 0 || strcmp(c2,"inc") == 0) {
+				// Serial.println("command temp increase recognized");
 				if (c3) {
-					Serial.println("c3 is present");
+					// Serial.println("c3 is present");
 					temp = temp + atof(c3);
 				}
-				else {
-					temp = temp + 0.1;
-				}
+				// else {
+				// 	Serial.println("Amount to increace temperature setpoint not specified.");
+				// 	Serial.println("Try again using format 'temp inc #' where '#' is the amount that the temperature should increase by.");
+				// }
 			}
-			else if (/*strcmp(c2,"decrease") == 0 || */strcmp(c2,"dec") == 0) {
-				Serial.println("command temp decrease recognized");
+			else if (strcmp(c2,"decrease") == 0 || strcmp(c2,"dec") == 0) { 
+				// Serial.println("command temp decrease recognized");
 				if (c3) {
-					Serial.println("c3 is present");
+					// Serial.println("c3 is present");
 					temp = temp - atof(c3);
 				}
-				else {
-					temp = temp - 0.1;
-				}
+				// else {
+				// 	temp = temp - 0.1;
+				// }
 			}
 			else {
 				Serial.println("temp comand not recognized. try again.");
@@ -91,5 +92,6 @@ void loop () {
 	else {
 		Serial.println("No command registered");
 	}
-	
+Serial.println();
+Serial.println();
 }
