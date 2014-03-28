@@ -8,7 +8,7 @@ OneWire ds(DS18S20_Pin);  // on digital pin 2
 
 float temperature;
 float tempSet = 25;
-// float difference; // determine difference between actual T and set point
+float difference; // determine difference between actual T and set point
 
 void setup(void) {
   Serial.begin(9600);
@@ -17,19 +17,37 @@ void setup(void) {
 
 void loop(void) {
   temperature = getTemp();
-  Serial.println(temperature);
+  //Serial.println(temperature);
+
+  difference = temperature - tempSet;
 
   if (temperature < tempSet) {
     digitalWrite(ledPin, HIGH);
-    Serial.println("Temperature below setpoint");
+    Serial.print("Temperature is ");
+    Serial.print(temperature);
+    Serial.println(" C");
+    Serial.print("Temperature is ");
+    Serial.print(-difference);
+    Serial.println(" C below the set point.");
+    Serial.println();
   }
   else if (temperature == tempSet) {
     digitalWrite(ledPin, LOW);
-    Serial.println("Temperature at setpoint");
+    Serial.print("Temperature is ");
+    Serial.print(temperature);
+    Serial.println(" C");
+    Serial.println("Temperature is at the set point.");
+    Serial.println();
   }
   else if (temperature > tempSet) {
     digitalWrite(ledPin, LOW);
-    Serial.println("Temperature above setpoint");
+    Serial.print("Temperature is ");
+    Serial.print(temperature);
+    Serial.println(" C");
+    Serial.print("Temperature is ");
+    Serial.print(difference);
+    Serial.println(" C above the set point.");
+    Serial.println();
   }
 
   delay(1000); //just here to slow down the output so it is easier to read
