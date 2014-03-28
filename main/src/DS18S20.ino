@@ -5,14 +5,16 @@ int DS18S20_Pin = 28; //DS18S20 Signal pin on digital 2
 //Temperature chip i/o
 OneWire ds(DS18S20_Pin);  // on digital pin 2
 
+float temperature;
+
 void setup(void) {
   Serial.begin(9600);
 }
 
 void loop(void) {
-  float temperature = getTemp();
+  temperature = getTemp();
   Serial.println(temperature);
-  
+
   delay(1000); //just here to slow down the output so it is easier to read
   
 }

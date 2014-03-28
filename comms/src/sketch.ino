@@ -58,9 +58,6 @@ void loop () {
 			}
 			else if (/*strcmp(c2,"increase") == 0 || */strcmp(c2,"inc") == 0) {
 				Serial.println("command temp increase recognized");
-				if (!c3) {
-					Serial.println("No third argument");
-				}
 				if (c3) {
 					Serial.println("c3 is present");
 					temp = temp + atof(c3);
