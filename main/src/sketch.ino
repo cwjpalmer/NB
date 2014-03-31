@@ -34,7 +34,7 @@ void loop(void) {
 
   serialCommandAccept();
 
-  delay(2500); //just here to slow down the output so it is easier to read
+  delay(1750); //just here to slow down the output so it is easier to read
   
 }
 
