@@ -10,11 +10,17 @@ void setup() {
 }
 
 void loop () {
-	// int switchState = digitalRead(switchPin);
-	// Serial.print(switchState);
-	// delay(5);
-	digitalWrite(LEDPin, HIGH);
-	delay(100);
-	digitalWrite(LEDPin, LOW);
-	delay(100);
+	int switchState = digitalRead(switchPin);
+	Serial.print(switchState);
+	delay(5);
+	if(switchState) {
+		digitalWrite(switchLEDPin, HIGH);
+	}
+	else {
+		digitalWrite(switchLEDPin, LOW);
+	}
+	// digitalWrite(LEDPin, HIGH);
+	// delay(100);
+	// digitalWrite(LEDPin, LOW);
+	// delay(100);
 }
