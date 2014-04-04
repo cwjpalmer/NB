@@ -19,8 +19,4 @@ void loop () {
 	else {
 		digitalWrite(switchLEDPin, LOW);
 	}
-	// digitalWrite(LEDPin, HIGH);
-	// delay(100);
-	// digitalWrite(LEDPin, LOW);
-	// delay(100);
 }
